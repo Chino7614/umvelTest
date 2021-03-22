@@ -1,0 +1,54 @@
+<div class="container h-100 align-items-center d-flex justify-content-center">
+  <mat-card class="d-flex flex row"
+    >
+  <div class="col-12 col-md-6">
+    <div class="d-flex justify-content-start">
+      <img src="/assets/images/umvel.jpeg" width="60" height="60" alt="logo">
+      </div>
+    <img src="/assets/images/login.png" width="80%" height="80%" alt="login">
+  </div>
+    <div class="col-12 col-md-6 m-auto">
+        <h1 class="text-left title"> Inicio de sesión </h1>
+        <form class="d-flex flex-column" [formGroup]="loginForm">
+          <mat-form-field appearance="fill">
+            <mat-label>Ingresa tu correo electrónico</mat-label>
+            <input
+              matInput
+              placeholder="pat@example.com"
+              formControlName="email"
+            />
+            <mat-error *ngIf="email.invalid">{{ getErrorMessage() }}</mat-error>
+          </mat-form-field>
+          <mat-form-field appearance="fill">
+            <mat-label>Ingresa tu contraseña</mat-label>
+            <input
+              matInput
+              formControlName="password"
+              [type]="hide ? 'password' : 'text'"
+            />
+            <button
+              mat-icon-button
+              matSuffix
+              (click)="hide = !hide"
+              [attr.aria-label]="'ocultar contraseña'"
+              [attr.aria-pressed]="hide"
+              class="button-icon"
+            >
+              <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+            </button>
+            <mat-error *ngIf="password.invalid"
+              >Debes ingresar una contraseña</mat-error
+            >
+          </mat-form-field>
+          <div class="row d-flex justify-content-end">
+          <div class="col-4">
+            <button (click)="loggin()" class="btn btn-primary">
+              Iniciar sesión
+            </button>
+          </div>
+          </div>
+        </form>
+    </div>
+      </mat-card
+  >
+</div>
