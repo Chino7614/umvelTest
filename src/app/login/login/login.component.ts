@@ -39,7 +39,7 @@ export class LoginComponent implements OnInit {
   loggin() {
     if (this.loginForm.valid) {
       sessionStorage.setItem('information', JSON.stringify(this.loginForm.value));
-      this.router.navigateByUrl('home');
+      this.router.navigateByUrl('/home');
     }
   }
 
