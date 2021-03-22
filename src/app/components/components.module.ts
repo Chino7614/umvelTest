@@ -16,6 +16,6 @@ import { ChartComponent } from './chart/chart.component';
     MatTableModule,
     MatPaginatorModule
   ],
-  exports: [EmployeeManageComponent]
+  exports: [EmployeeManageComponent, ChartComponent]
 })
 export class ComponentsModule { }
