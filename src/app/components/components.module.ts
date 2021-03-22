@@ -4,11 +4,12 @@ import { EmployeeManageComponent } from './employee-manage/employee-manage.compo
 import { MatCardModule } from '@angular/material/card';
 import {MatTableModule} from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { ChartComponent } from './chart/chart.component';
 
 
 
 @NgModule({
-  declarations: [EmployeeManageComponent],
+  declarations: [EmployeeManageComponent, ChartComponent],
   imports: [
     CommonModule,
     MatCardModule,
