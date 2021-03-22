@@ -1,23 +1,46 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { Chart } from 'chart.js';
 import { ChartArrayModel, ChartModel } from 'src/app/models/chart.model';
 import { ChartService } from 'src/app/services/chart/chart.service';
 
+/**
+ * char decorator
+ */
 @Component({
   selector: 'app-chart',
   templateUrl: './chart.component.html',
   styleUrls: ['./chart.component.scss'],
 })
-export class ChartComponent implements OnInit {
-  @ViewChild('lineChart', { static: true }) lineChart: any = Chart;
-  arrayWeight: any;
 
+/**
+ * Chart component class
+ */
+export class ChartComponent {
+  /**
+   * access to DOM where char will be create
+   */
+  @ViewChild('lineChart', { static: true }) lineChart: any = Chart;
+
+  /**
+   * contain all car_make array for show in axis x
+   */
   carMakeArray: any = [];
 
+  /**
+   * contain all quantity array for show in axis x
+   */
   quantityArray: any = [];
 
+  /**
+   * Create new Chart model
+   */
   chartModel = new ChartModel();
 
+
+  /**
+   * Get data the service 
+   * @param chartService ChartService
+   */
   constructor(private chartService: ChartService) {
     this.chartService.getChart().forEach((chartModel: ChartModel) => {
       this.chartModel = chartModel;
@@ -26,8 +49,9 @@ export class ChartComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {}
-
+  /**
+   * Execute reduce method for elimante replace data and sum quantity too
+   */
   private reduceArray() {
     const reduceArray = this.chartModel.sales.reduce((acomulate: any, element: ChartArrayModel) => {
       const found = acomulate.find(
@@ -44,6 +68,9 @@ export class ChartComponent implements OnInit {
     this.quantityArray = reduceArray.map((element: ChartArrayModel) => element.quantity);
   }
 
+  /**
+   * create new Chart passing the viewChild and the mak and the quantity
+   */
   private _lineChart() {
     const lineChart = new Chart(this.lineChart.nativeElement, {
       type: 'line',

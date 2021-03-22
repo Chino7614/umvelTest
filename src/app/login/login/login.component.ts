@@ -1,26 +1,46 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
+/**
+ * Login component decorator
+ */
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
-export class LoginComponent implements OnInit {
 
-  // show or hide icon in password input
+/**
+ * Login class
+ */
+export class LoginComponent {
+
+  /**
+   * show or hide icon in password input
+   */
   hide = true;
 
-  // form to login
+  /**
+   * form to login
+   */
   loginForm: FormGroup;
 
-  // obtain email to login form
+  /**
+   * obtain email to login form
+   */
   email: AbstractControl;
 
-  // obtain password to login form
+  /**
+   * obtain password to login form
+   */
   password: AbstractControl;
 
+  /**
+   * Home constructor
+   * @param formBuilder create the form
+   * @param router Navigate url home
+   */
   constructor(
     private formBuilder: FormBuilder, private router: Router) {
     this.loginForm = this.formBuilder.group({
@@ -31,11 +51,9 @@ export class LoginComponent implements OnInit {
     this.email = this.loginForm.controls.email;
     this.password = this.loginForm.controls.password;
   }
-
-  ngOnInit(): void {
-  }
-
-  // validate if login form is valid
+  /**
+   * validate if login form is valid
+   */
   loggin() {
     if (this.loginForm.valid) {
       sessionStorage.setItem('information', JSON.stringify(this.loginForm.value));
@@ -43,7 +61,10 @@ export class LoginComponent implements OnInit {
     }
   }
 
-  // validate the two errors type of email input
+  /**
+   * validate the two errors type of email input
+   * @returns the error
+   */
   getErrorMessage() {
     if (this.email.hasError('required')) {
       return 'Debes de ingresar un correo electrónico';
