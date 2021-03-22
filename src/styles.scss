@@ -3,9 +3,10 @@
 @import "./styles/variables.scss";
 @import "./styles/vendors/angular-material/mat-card";
 @import "./styles/vendors/angular-material/mat-form-field";
+@import "./styles/vendors/angular-material/mat-tab-group";
+@import "./styles/vendors/angular-material/mat-row";
 @import "./styles/vendors/bootstrap/buttons/buttons-icon";
 @import "./styles/general-styles.scss";
 
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; 
-    background: #e5e5e5;}
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

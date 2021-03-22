@@ -1,0 +1,16 @@
+.mat-tab-group {
+    height: 100%;
+    .mat-tab-body-wrapper { 
+        height: 100%;
+    }
+
+    .mat-tab-header {
+        .mat-tab-label-container {
+            .mat-tab-list {
+                .mat-ink-bar {
+                    background-color: $color-primary;
+                }
+            }
+        }
+    }
+}
