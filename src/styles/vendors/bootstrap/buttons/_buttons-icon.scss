@@ -1,0 +1,11 @@
+.button-icon {
+    background: transparent;
+    border: transparent;
+}
+
+.btn-primary {
+    background: $color-primary;
+    &:hover {
+        background: $color-primary;
+    }
+}
